@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+.vagrant
+bootstrap.sh
+Vagrantfile
+Gemfile.lock
