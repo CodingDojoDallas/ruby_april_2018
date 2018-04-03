@@ -25,6 +25,7 @@ NOTE: If you don't get in at least one pull request daily, then *_ya ain't serio
 
 ## Videos
 Intro - https://youtu.be/XfbT0kzTHTk <br>
+OOP Visibility - https://youtu.be/K6kvQKuu384 <br>
 
 ## Demos
 Virtual Machine - https://youtu.be/XfbT0kzTHTk <br>
