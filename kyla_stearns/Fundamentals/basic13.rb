@@ -61,6 +61,8 @@ eliminate [1,5,10,-2]
 
 # Max, Min, and Average
 def hash arr
+	# could also do
+	# return {max: arr.max, min: arr.min, avg: arr.reduce(:+).to_f / arr.size }
 	arr_hash =  {max: arr.max, min: arr.min, avg: arr.reduce(:+).to_f / arr.size }
 	p arr_hash
 end
