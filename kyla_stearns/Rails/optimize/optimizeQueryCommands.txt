@@ -1,0 +1,34 @@
+# 1 Retrieve all players then loop through each player and display team name, mascot & stadium
+all_players = Player.all
+all_players.each do |player|
+	p "Player: #{player.name } Team: #{player.team.name} Mascot: #{player.team.mascot} Stadium: #{player.team.stadium}"
+end
+
+# 2 Do above, except use .includes this time
+all_players = Player.includes(:team)
+all_players.each do |player|
+	p "Player: #{player.name } Team: #{player.team.name} Mascot: #{player.team.mascot} Stadium: #{player.team.stadium}"
+end
+
+# 3 Now use .includes this time retrieving all players from the Chicago Bulls
+all_players = Player.includes(:team).where("teams.name = 'Chicago Bulls' ").references(:team)
+all_players.each do |player|
+	p "Player: #{player.name } Team: #{player.team.name}"
+end
+
+# 4 Now use .includes this time retrieving all players that play at 'Staples Center'
+all_players = Player.includes(:team).where("teams.stadium = 'Staples Center' ").references(:team)
+all_players.each do |player|
+	p "Player: #{player.name } Team: #{player.team.name} Stadium: #{player.team.stadium}"
+end
+
+# 5 Now use .includes AND .joins this time retrieving all teams that have any player with name start Z 
+all_players = Player.includes(:team).where("players.name LIKE 'Z%' ").references(:team)
+all_players.each do |player|
+	p "Player: #{player.name } Team: #{player.team.name} "
+end
+
+all_players = Player.joins(:team).where("players.name LIKE 'Z%' ")
+all_players.each do |player|
+	p "Player: #{player.name } Team: #{player.team.name} "
+end
