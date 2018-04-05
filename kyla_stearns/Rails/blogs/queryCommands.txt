@@ -1,0 +1,18 @@
+Blog.create(name: "Cats vs. Dogs", description: "Is one really better than the other?")
+Blog.create(name: "Foodies", description: "All your favorite recipes and tips")
+
+Post.create(blog: Blog.fifth, title: "Very intriguing", content: "Makes me want to dig into this topic further.")
+Post.create(blog: Blog.fifth, title: "Good but not great", content: "I think the writer could have delved into more detail.")
+
+Message.create(post: Post.first, author: "Benedict Cumberbatch", message: "Oi! This was great, mate! Good on 'ya!")
+Message.create(post: Post.first, author: "Pauly Shore", message: "Oh yeah, totally cool, man.")
+
+Blog.first.posts
+Blog.last.posts.order('title DESC')
+Post.first.update(title: "Not so horrible after all.")
+
+-- In Post @ has_many :messages ADDED , dependent: :destroy --
+reload!
+Post.third.destroy
+
+Blog.where("id < ?", 5)

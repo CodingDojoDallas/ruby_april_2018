@@ -1,0 +1,14 @@
+Hirb.enable
+User.all
+user = User.new(first_name: "Julianne", last_name: "Nutt", email: "", age: 156)
+user.valid?
+user.save
+user.errors
+user.errors.full_messages
+User.first
+User.last
+User.order('first_name DESC')
+User.find(3)
+User.find(3).update(last_name: "Carney")
+User.find(4).destroy
+User.all
