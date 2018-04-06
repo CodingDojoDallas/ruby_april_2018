@@ -30,6 +30,7 @@ Model I - https://youtu.be/sYGLc39Rwwk <br>
 
 ## Demos
 Virtual Machine - https://youtu.be/XfbT0kzTHTk <br>
+Self-Join - https://youtu.be/FOCP29sCh8g <br>
 
 
 ## Resources
