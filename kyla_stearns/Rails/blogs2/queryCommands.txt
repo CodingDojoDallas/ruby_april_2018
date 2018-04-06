@@ -1,0 +1,68 @@
+User.create(first_name: "Bobby", last_name: "McGee", email: "bobby@mcgee.com")
+User.create(first_name: "Elvis", last_name: "Presley", email: "king@rock.com")
+User.create(first_name: "Lady", last_name: "Gaga", email: "rara@ohlala.com")
+User.create(first_name: "Kiki", last_name: "LaRue", email: "whodis@money.com")
+User.create(first_name: "Timmy", last_name: "Bucktooth", email: "mahteef@crooked.com")
+
+Blog.create(name: "Purple", description: "the color of royalty")
+Blog.create(name: "Green", description: "the color of envy")
+Blog.create(name: "Red", description: "the color of love")
+Blog.create(name: "Blue", description: "the color of calm")
+Blog.create(name: "White", description: "the color of purity")
+
+Owner.create(user: User.first, blog: Blog.first)
+Owner.create(user: User.first, blog: Blog.second)
+Owner.create(user: User.first, blog: Blog.third)
+
+Owner.create(user: User.second, blog: Blog.fourth)
+
+Owner.create(user: User.last, blog: Blog.fifth)
+
+Owner.create(user: User.third, blog: Blog.first)
+Owner.create(user: User.third, blog: Blog.second)
+Owner.create(user: User.third, blog: Blog.third)
+Owner.create(user: User.third, blog: Blog.fourth)
+Owner.create(user: User.third, blog: Blog.fifth)
+
+Post.create(user: User.first, blog: Blog.find(2), title: "Deeply insightful", content: "I really enjoyed this piece, very thought-provoking")
+Post.create(user: User.first, blog: Blog.find(2), title: "Read it again", content: "I read this again and was blown away")
+Post.create(user: User.first, blog: Blog.find(2), title: "New realization", content: "Every time I read, I get something new!")
+
+Post.create(user: User.second, blog: Blog.last, title: "Misleading", content: "Purity is over-rated")
+Post.create(user: User.second, blog: Blog.last, title: "Waste of time", content: "This is stupid... chicks suck")
+Post.create(user: User.second, blog: Blog.last, title: "What a joke", content: "Girls always make the guy seem like the one that's wrong")
+Post.create(user: User.second, blog: Blog.last, title: "Blasphemy", content: "What girl actually wants to stay pure?")
+Post.create(user: User.second, blog: Blog.last, title: "Super lame", content: "Clearly, this is irrelevant to today's society.")
+
+Post.create(user: User.third, blog: Blog.find(3), title: "This is deep", content: "I love the expressionism in this piece!")
+Post.create(user: User.third, blog: Blog.find(3), title: "This is deep", content: "I really love the metaphors and visual explanations.")
+Post.create(user: User.third, blog: Blog.find(4), title: "Just reading this makes me feel calm!")
+Post.create(user: User.third, blog: Blog.find(4), title: "I came back to this amidst a stressful day!")
+
+Message.create(user: User.third, post: Post.first, message: "For real? I didn't think this was that great...")
+Message.create(user: User.third, post: Post.first, message: "I mean I came back and read this and it's aight...")
+
+Message.create(user: User.third, post: Post.second, message: "I agree, this was deeply thought-provoking!")
+Message.create(user: User.third, post: Post.second, message: "I can't get enough of this!")
+Message.create(user: User.third, post: Post.second, message: "2 weeks later and this is still hitting me in waves!")
+
+Message.create(user: User.fourth, post: Post.last, message: "Too touchy-feely for my taste.")
+Message.create(user: User.fourth, post: Post.last, message: "I can't stand people pouring their guts out, bleh.")
+Message.create(user: User.fourth, post: Post.last, message: "What suckers... I can't believe this is gaining popularity.")
+
+Post.find(2).update(user: User.last)
+
+Post.find(2).update(content: "I really have enjoyed this so much and shared it with all my friends!")
+
+User.find(3).blogs
+
+Post.where(user: User.third)
+
+Message.where(user: User.third)
+
+Post.joins(:user).where(blog: Blog.find(5)).select('title, users.id, users.first_name, users.last_name')
+
+blog2posts = Post.where(blog: Blog.find(2))
+Message.joins(:user).where(post: blog2posts).select('message, users.id, users.first_name, users.last_name')
+
+Blog.first.owners

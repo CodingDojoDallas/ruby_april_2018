@@ -21,6 +21,8 @@ all_players = Player.includes(:team).where("teams.stadium = 'Staples Center' ").
 all_players.each do |player|
 	p "Player: #{player.name } Team: #{player.team.name} Stadium: #{player.team.stadium}"
 end
+# ALTERNATIVE OPTION USING JOIN AND SELECT
+all_players = Player.joins(:team).select('players.name, teams.name').where("teams.stadium = 'Staples Center' ")
 
 # 5 Now use .includes AND .joins this time retrieving all teams that have any player with name start Z 
 all_players = Player.includes(:team).where("players.name LIKE 'Z%' ").references(:team)
