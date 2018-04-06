@@ -55,6 +55,7 @@ Post.find(2).update(user: User.last)
 Post.find(2).update(content: "I really have enjoyed this so much and shared it with all my friends!")
 
 User.find(3).blogs
+Blog.find(3).users
 
 Post.where(user: User.third)
 
@@ -66,3 +67,5 @@ blog2posts = Post.where(blog: Blog.find(2))
 Message.joins(:user).where(post: blog2posts).select('message, users.id, users.first_name, users.last_name')
 
 Blog.first.owners
+
+Owner.first.destroy
