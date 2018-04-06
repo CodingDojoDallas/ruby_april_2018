@@ -1,0 +1,34 @@
+rails new selfies
+cd selfies/
+rails g model User first_name:string last_name:string
+rails g model Friendship friend_to:references friend_of:references
+rake db:migrate
+rails c
+
+User.create(first_name: "John", last_name: "Jones")
+User.create(first_name: "Janet", last_name: "Jackson")
+user1 = User.first
+user2 = User.second
+
+Friendship.create(friend_to: user1, friend_of: user2)
+Friendship.create(friend_to: user2, friend_of: user1)
+
+User.first.friend_info
+User.second.friender_info
+
+user3 = User.create(first_name: "Bobby", last_name: "McGee")
+user4 = User.create(first_name: "Grace", last_name: "Jansen")
+
+Friendship.create(friend_to: user3, friend_of: user4)
+Friendship.create(friend_to: user4, friend_of: user3)
+
+
+user3.friend_info
+user4.friend_info
+
+user3.friender_info
+user4.friender_info
+
+Friendship.create(friend_to: User.second, friend_of: User.first)
+
+User.includes(:friend_info).where.not(friendships:{friend_to_id: 1})

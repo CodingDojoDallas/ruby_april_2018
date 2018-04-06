@@ -47,6 +47,8 @@ greater [1,3,5,7], 3
 # Square the values
 def square arr
 	y = []
+	# use MAP to return a new array with new values instead of this long way
+	# can also use y << i*i instead of 'push' or 'append'
 	arr.select { |i| y.push(i*i) }
 	p y
 end
