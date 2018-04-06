@@ -1,0 +1,10 @@
+<div style="border: 1px solid black; background-color: green; color: white"><p>Thanks for submitting this form! You have submitted this form <%= session[:count] %> times now.</p></div>
+<div>
+    <h1>Submitted Information</h1>
+    <ul>
+        <li>Name: <%= @user.name %></li>
+        <li>Dojo Location: <%= @user.location %></li>
+        <li>Favorite Language: <%= @user.language %></li>
+        <li>Comment: <%= @user.comment %></li>
+    </ul>
+</div>

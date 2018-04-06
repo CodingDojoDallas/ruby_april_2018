@@ -1,0 +1,2 @@
+module TimesHelper
+end

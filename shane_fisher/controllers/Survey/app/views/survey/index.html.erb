@@ -1,0 +1,20 @@
+<form action="/" method="post" style="border: 2px solid black; width: 220px">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="name">Name</label>
+    <input type="text" name="name">
+    <select style="float: left" name="location">
+        <option value="Dallas">Dallas</option>
+        <option value="Seattle">Seattle</option>
+        <option value="New York">New York</option>
+        <option value="Saskatchewan">Saskatchewan</option>
+    </select>
+    <select style="float: left" name="language">
+        <option value="Python">Python</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Orzblorp">Orzblorp</option>
+    </select>
+    <label for="comment">Comment: (Optional)</label>
+    <textarea name="comment"cols="30" rows="10"></textarea>
+    <input type="submit" name="submit" value="Submit">
+</form>
