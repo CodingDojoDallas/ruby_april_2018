@@ -1,0 +1,46 @@
+<div id='wrapper' style="width: 970px; padding: 20px">
+    <p>Your Gold</p><form action="rpg/clear">
+    <p style="width: 80px; border: 2px solid black; padding-left: 30px"> <%= session[:gold] %></p>
+    <input type="submit" name "clear" value="Clear Gold">
+    </form>
+    <div id="game">
+    <form action="rpg/farm" style="border: 2px solid black; display: inline-block; margin: 10px 5px">
+        <h1>Farm</h1>
+        <p>(earns 10-20 golds)</p>
+        <input type="submit" name="submitfarm" value="Find Gold!">
+    </form>
+    <form action="rpg/cave" style="border: 2px solid black; display: inline-block; margin: 10px 5px">
+        <h1>Cave</h1>
+        <p>(earns 5-10 golds)</p>
+        <input type="submit" name="submitcave" value="Find Gold!">
+    </form>
+    <form action="rpg/house" style="border: 2px solid black; display: inline-block; margin: 10px 5px">
+        <h1>House</h1>
+        <p>(earns 2-5 golds)</p>
+        <input type="submit" name="submithouse" value="Find Gold!">
+    </form>
+    <form action="rpg/casino" style="border: 2px solid black; display: inline-block; margin: 10px 5px">
+        <h1>Casino</h1>
+        <p>(earns 0-50 golds)</p>
+        <input type="submit" name="submitcasino" value="Find Gold!">
+    </form>
+    </div>
+    
+    <div id="activities" style="border: 2px solid black; height: 100px; overflow: scroll">
+        <ul>
+        <% session[:activities].each do |act| %>
+        <% if act.include? "Lost" %>
+            <li style="color:red"><%= act %></li>
+        <% else %>
+            <li style="color:green"><%= act %></li>
+        <% end %>
+        <% end %>
+        </ul>
+    </div>
+    <form action="rpg/actclear">
+        <input type="submit" name="actclear" value="Clear Activities">
+    </form>
+    
+
+
+</div>
