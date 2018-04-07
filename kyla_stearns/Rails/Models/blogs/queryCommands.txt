@@ -11,7 +11,7 @@ Blog.first.posts
 Blog.last.posts.order('title DESC')
 Post.first.update(title: "Not so horrible after all.")
 
--- In Post @ has_many :messages ADDED , dependent: :destroy --
+# -- In Post @ has_many :messages ADDED , dependent: :destroy --
 reload!
 Post.third.destroy
 

@@ -1,0 +1,44 @@
+cd blogs2
+rails g model Comment commentable:references{polymorphic} content:text
+rake db:migrate
+
+Hirb.enable
+Comment.new
+
+Comment.create(commentable_id: 1, commentable_type: "Blog", content: "I think this will inspire a lot of people.")
+Comment.create(commentable_id: 2, commentable_type: "Post", content: "I agree this is garbage.")
+Comment.create(commentable_id: 3, commentable_type: "Message", content: "This message is ridiculous.")
+Comment.create(commentable_id: 4, commentable_type: "User", content: "You need to get a life.")
+# could also do:
+# Comment.create(commentable: Blog.first, content: "I think this will inspire a lot of people.")
+# Comment.create(commentable: Post.second, content: "I agree this is garbage.")
+# Comment.create(commentable: Message.third, content: "This message is ridiculous.")
+# Comment.create(commentable: User.fourth, content: "You need to get a life.")
+
+Blog.first.comments.find(1).update(content: "This is going to change the world.")
+Post.second.comments.find(2).update(content: "Definitely a waste of my time.")
+Message.third.comments.find(3).update(content: "Total non-sense.")
+User.fourth.comments.find(4).update(content: "Surely you have better things to do.")
+
+# this syntax didn't work
+# Comment.update(commentable_id: 1, commentable_type: "Blog", content: "This is going to change the world.")
+# Comment.update(commentable_id: 2, commentable_type: "Post", content: "Definitely a waste of my time.")
+# Comment.update(commentable_id: 3, commentable_type: "Message", content: "Total non-sense.")
+# Comment.update(commentable_id: 4, commentable_type: "User", content: "Surely you have better things to do.")
+
+# assumed this could work, but updating doesn't work identically to creating
+# Comment.update(commentable: Blog.first, content: "This is going to change the world.")
+# Comment.update(commentable: Post.second, content: "Definitely a waste of my time.")
+# Comment.update(commentable: Message.third, content: "Total non-sense.")
+# Comment.update(commentable: User.fourth, content: "Surely you have better things to do.")
+
+Blog.first.comments.find(1).destroy
+Post.second.comments.find(2).destroy
+Message.third.comments.find(3).destroy
+User.fourth.comments.find(4).destroy
+
+# also not correct syntax
+# Comment.destroy(commentable_id: 1, commentable_type: "Blog")
+# Comment.destroy(commentable_id: 2, commentable_type: "Post")
+# Comment.destroy(commentable_id: 3, commentable_type: "Message")
+# Comment.destroy(commentable_id: 4, commentable_type: "User")
