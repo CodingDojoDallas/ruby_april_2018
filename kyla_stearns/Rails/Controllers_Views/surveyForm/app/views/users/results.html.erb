@@ -6,17 +6,22 @@
 	</head>
 	<body>
 		<main>
-			<div id="alert">
-				<p> Thanks for submitting this form! You have submitted this form <%= session.submit %> times now </p>
-			</div>
+			<% if flash[:success] %>
+				<div id="alert">
+					<p> <%= flash[:success] %> </p>
+				</div>
+			<% end %>
 			<div id="content">
 				<h2> Submitted Info </h2>
-				<p>Your Name: <%= this_user.name %> </p>
-				<p>Dojo Location: <%= this_user.location %> </p>
-				<p>Favorite Language: <%= this_user.language %> </p>
-				<p>Comments: <%= this_user.comment %> </p>
+				<p>Your Name: <%= @this_user.name %> </p>
+				<p>Dojo Location: <%= @this_user.location %> </p>
+				<p>Favorite Language: <%= @this_user.language %> </p>
+				<p>Comments: <%= @this_user.comment %> </p>
 
-				<button href="/"> Go Back </button>
+				<form action='/'>
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<button = button_to "/"> Go Back </button>
+				</form>
 			</div>
 		</main>
 	</body>

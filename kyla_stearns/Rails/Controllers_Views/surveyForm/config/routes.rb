@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   get '' => 'users#index'
-  post 'process' => 'users#process'
+  post 'create' => 'users#create'
   get 'results' => 'users#results'
 end

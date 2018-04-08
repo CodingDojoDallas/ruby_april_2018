@@ -2,21 +2,29 @@ class UsersController < ApplicationController
 
 	def index
 		# arriving at root route, render index.html.erb and set session
-		session[:submit] = 0
-		puts "Index - Session is at: #{session[:submit]}"
+		session[:submit] ||= 0
+		# puts "Index - Session is at: #{session[:submit]}"
+
+		# use flash to show message 
 	end
 
+	def create
+    # form submission, add 1 to session and create user, then direct to results page
+    	new_user = User.create(user_params)
+    	if new_user.valid?
+	        session[:submit] += 1
+	        flash[:success] = "Thanks for submitting this form! You have submitted this form #{session[:submit]} times."
+	        puts "Process Form - Session is at: #{session[:submit]}"
+	        return redirect_to '/results'
+    	end
 
-	def process data
-		# form submission, add 1 to session and create user, then direct to results page
-		@new_user = User.create(user_params)
-		session[:submit] += 1
-		puts "Process Form - Session is at: #{session[:submit]}"
-		redirect_to '/results'
-	end
+    	# Otherwise there were errors
+    	flash[:errors] = new_user.errors.full_messages
+    	return redirect_to '/'
+end
 
 	def results
-		this_user = User.last
+		@this_user = User.last
 	end
 
 	private
