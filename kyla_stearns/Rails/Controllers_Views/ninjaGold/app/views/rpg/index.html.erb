@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Get 'yo money! </title>
+	</head>
+	<body>
+		<main>
+			<h1>ARE YOU A WINNER???</h1>
+			<div id="bank">
+				<h4> Your Gold: </h4> 
+				<p> <%= session[:money] %> </p>
+				<form action="/reset" method="POST">
+					<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+					<input type="submit" value="Start Over!">
+				</form>
+			</div>
+			<div id="content">
+				<div class="places">
+					<h3> Farm </h3>
+					<h5> (earns 10-20 gold) </h5>
+					<form action='/farm' method='POST'>
+						<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+						<input type="hidden" name="rpg[building]" value="farm" />
+						<input type="submit" value="Find Gold!" />
+					</form>
+				</div>
+
+				<div class="places">
+					<h3> Cave </h3>
+					<h5> (earns 5-10 gold) </h5>
+					<form action='/cave' method='POST'>
+						<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+						<input type="hidden" name="rpg[building]" value="cave" />
+						<input type="submit" value="Find Gold!" />
+					</form>
+				</div>
+
+				<div class="places">
+					<h3> House </h3>
+					<h5> (earns 2-5 gold) </h5>
+					<form action='/house' method='POST'>
+						<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+						<input type="hidden" name="rpg[building]" value="house" />
+						<input type="submit" value="Find Gold!" />
+					</form>
+				</div>
+
+				<div class="places">
+					<h3> Casino </h3>
+					<h5> (earns/takes 0-50 gold) </h5>
+					<form action='/casino' method='POST'>
+						<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+						<input type="hidden" name="rpg[building]" value="casino" />
+						<input type="submit" value="Find Gold!" />
+					</form>
+				</div>
+			</div>
+			<h4> Activites: </h4>
+			<div id="activities"> 
+				<% if session[:content].any? %>
+					<% session[:content].each do |element| %>
+					<p class ="<%= element["color"] %>"> <%= element["msg"] %> </p>
+					<% end %>
+				<% end %>
+			</div>
+		</main>
+	</body>
+</html>
