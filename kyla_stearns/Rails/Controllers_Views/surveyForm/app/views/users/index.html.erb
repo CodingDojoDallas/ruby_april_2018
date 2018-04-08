@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Survey Form </title>
+	</head>
+	<body>
+		<main>
+			<div id="content">
+
+				<form action='/process' method='POST'>
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<label> Your Name: <span><input type="text" name="user[name]"></span> </label>
+					<label> Dojo Location: 
+						<span><select name="user[location]">
+							<option>Chicago</option>
+							<option>Dallas</option>
+							<option>Los Angeles</option>
+							<option>Seattle</option>
+							<option>Silicon Valley</option>
+							<option>Tulsa</option>
+							<option>Washington DC</option></select>
+						</select>
+					</label>	
+					<label> <span>Favorite Language:</span> 
+						<span><select name="user[language]">
+							<option>HTML</option>
+							<option>CSS</option>
+							<option>JavaScript</option>
+							<option>Python</option>
+							<option>Ruby on Rails</option>
+							<option>MEAN</option>
+							<option>Swift</option></select>
+						</select>
+					</label>
+					<label> Comment (optional): </label>
+					<textarea name="user[comment]"></textarea>
+					<input type="submit" name="Submit">	
+				</form>
+			</div>
+		</main>
+	</body>
+</html>

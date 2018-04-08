@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Add New User </title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<h2> Add a New User </h2>
+
+				<form action="/users" method="POST">
+				<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+					<label> User name: </label>
+					<input type="text" name="user[name]">
+					<input type="submit" value="Add New User">
+				</form>
+				<a href="/users"> Go Back </a>
+			</div>
+		</div>
+	</body>
+</html>

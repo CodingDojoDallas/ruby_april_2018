@@ -1,0 +1,31 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+#container{
+	width: 970px;
+	padding: 25px;
+	font-size: 16px;
+}
+
+h2{
+	margin-bottom: 5px;
+}
+
+input[type=text]{
+	display: block;
+	margin: 5px 0px 15px 0px;
+	font-size: 16px;
+}
+
+input[type=submit]{
+	padding: 5px;
+	display: block;
+	margin: 10px 0px 10px 0px ;
+	background-color: lightblue;
+	border: 2px solid black;
+	box-shadow: 2px 2px;
+	font-size: 16px;
+}

@@ -1,6 +1,9 @@
 Rails.application.configure do
-  config.log_level = :warn
   # Settings specified here will take precedence over those in config/application.rb.
+  # this will auto-update without having to restart server when making changes
+  config.reload_classes_only_on_change = false
+  # this will reduce the logged activities in the console
+  config.log_level = :warn
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Survey Form </title>
+	</head>
+	<body>
+		<main>
+			<div id="alert">
+				<p> Thanks for submitting this form! You have submitted this form <%= session.submit %> times now </p>
+			</div>
+			<div id="content">
+				<h2> Submitted Info </h2>
+				<p>Your Name: <%= this_user.name %> </p>
+				<p>Dojo Location: <%= this_user.location %> </p>
+				<p>Favorite Language: <%= this_user.language %> </p>
+				<p>Comments: <%= this_user.comment %> </p>
+
+				<button href="/"> Go Back </button>
+			</div>
+		</main>
+	</body>
+</html>
