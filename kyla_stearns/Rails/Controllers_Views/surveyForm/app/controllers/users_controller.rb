@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     	# Otherwise there were errors
     	flash[:errors] = new_user.errors.full_messages
     	return redirect_to '/'
-end
+	end
 
 	def results
 		@this_user = User.last
