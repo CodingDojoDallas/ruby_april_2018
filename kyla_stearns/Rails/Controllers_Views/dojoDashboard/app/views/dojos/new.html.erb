@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> New Dojo </title>
+	</head>
+	<body>
+		<main>
+			<% if flash[:errors] %>	
+				<div id="alert">
+					<% flash[:errors].each do |error| %>	
+		     		<h4><%= error %></h4>
+		     		<% end %>
+				</div>
+			<% end %>
+
+			<h1> New Dojo </h1>
+			<form action='/create' method='POST'>
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+				<label> Branch: </label>
+				<input type="text" name="dojo[branch]"> 
+
+				<label> Street: </label>
+				<input type="text" name="dojo[street]">
+
+				<label> City: </label>
+				<input type="text" name="dojo[city]"> 
+
+				<label> State: </label>
+				<input type="text" name="dojo[state]">
+				<input type="submit" name="Create">	
+			</form>
+			<a href="/dojos"> Home </a>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+main{
+	background-color: lightgrey;
+	width: 1000px;
+	padding: 15px;
+}
+
+#container h1{
+	text-align: center;
+}
+
+#bank{
+	width: 350px;
+	/*border: 3px solid black;*/
+	margin: 25px 0px 25px 25px;
+	padding-right: 25px
+}
+
+#bank h4{
+	display: inline;
+	padding: 2px;
+}
+
+#bank p{
+	display: inline;
+	border: 3px solid black;
+	padding: 2px;
+	margin-right: 50px;
+}
+
+#bank form{
+	display: inline;
+}
+
+.places{
+	display: inline-block;
+	height: 100%;
+	width: 20%;
+	padding: 15px;
+	margin: 25px 5px 25px 5px;
+	text-align: center;
+}
+
+.places h3{
+	margin-top: 25px;
+}
+
+.places form{
+	margin: 25px 0px 25px 0px;
+}
+
+input[type=submit]{
+	padding: 5px;
+	box-shadow: 2px 2px black;
+	background-color: purple;
+	color: white;
+}
+
+#activities{
+	height: 200px;
+	overflow: scroll;
+	border: 2px solid black;
+	margin: 10px 10px 10px 10px;
+	padding: 5px;
+}
+
+#activities p{
+	margin-bottom: 3px;
+}
+
+.bold{
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.red{
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.green{
+	color: green;
+	font-weight: bold;
+	font-size: 14px;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Edit User </title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<h2> Edit User <%= @this_user.id %> </h2>
+
+				<form action="/users/<%= @this_user.id %>/update" method="POST">
+				<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>" >
+					<label> User name: </label>
+					<input type="text" name="user[name]" value = "<%= @this_user.name %> ">
+					<input type="submit" value="Update User">
+				</form>
+				<a href="/users/<%= @this_user.id %>"> Show </a> | <a href="/users"> Go Back </a>
+			
+			</div>
+		</div>
+	</body>
+</html>

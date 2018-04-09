@@ -1,0 +1,83 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+main{
+	width: 970px;
+	margin: auto;
+	padding: 15px;
+	font-size: 16px;
+}
+
+table{
+	margin: 15px 0px 25px 0px;
+	border: 2px solid black;
+}
+
+thead{
+	background-color: lightgrey;
+}
+
+th{
+	padding: 3px 5px 3px 5px;
+}
+
+td{
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	font-size: 14px;
+}
+
+#alert{
+	color: red;
+}
+
+form{
+	/* form for creating and editing */
+	padding: 5px;
+	margin: 0px 0px 25px 25px;
+}
+
+label{
+	display: block;
+	font-weight: bold;
+	margin: 5px 10px 5px 10px;
+}
+
+input{
+	font-size: 16px;
+	margin: 0px 0px 0px 10px;
+	display: block;
+}
+
+input[type=submit]{
+	padding: 5px;
+	font-size: 14px;
+	background-color: lightblue;
+	border: 2px solid black;
+	box-shadow: 2px 2px black;
+	margin: 10px 0px 10px 10px;
+}
+
+#info{
+	/*this box is for showing info on just one  */
+	/*border: 2px solid black;*/
+	padding: 5px;
+	height: 150px;
+	width: 250px;
+}
+
+#info h1{
+	margin-bottom: 25px;
+}
+
+#info h3{
+	margin: 15px 0px 15px 0px;
+}
+
+#info p{
+	margin-left: 150px;
+}
+
