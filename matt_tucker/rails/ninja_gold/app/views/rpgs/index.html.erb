@@ -1,0 +1,38 @@
+<h1>Ninja Gold</h1>
+
+<div>
+	<p>Your gold: <input type="text" value="<%= session[:gold] %>" disabled></p>
+
+	<div id="buildings">
+		<div class="building">
+			<h5>Farm</h5>
+			<p>(earns 10-20 golds)</p>
+			<a href="/gamble/farm"><button>Find Gold!</button></a>
+		</div>
+		<div class="building">
+			<h5>Cave</h5>
+			<p>(earns 5-10 golds)</p>
+			<a href="/gamble/cave"><button>Find Gold!</button></a>
+		</div>
+		<div class="building">
+			<h5>House</h5>
+			<p>(earns 2-5 golds)</p>
+			<a href="/gamble/house"><button>Find Gold!</button></a>
+		</div>
+		<div class="building">
+			<h5>Casino</h5>
+			<p>(earns/takes 0-50 golds)</p>
+			<a href="/gamble/casino"><button>Find Gold!</button></a>
+		</div>
+	</div>
+
+	<p>Activities:</p>
+	<div id="activities">
+		<% session[:activities].each do |activity| %> 
+			<p class="<%= activity["color"] %>">
+				<%= activity["message"] %>
+			</p>
+		<% end %>
+	</div>
+
+</div>
