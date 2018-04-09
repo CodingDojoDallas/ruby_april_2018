@@ -32,7 +32,7 @@ Routes/Whitelisting - https://youtu.be/ySsDwaXGExE <br>
 ## Demos
 Virtual Machine - https://youtu.be/XfbT0kzTHTk <br>
 Self-Join - https://youtu.be/FOCP29sCh8g <br>
-
+Ninja Gold - https://youtu.be/2p1978Wd-2Q <br>
 
 ## Resources
 
