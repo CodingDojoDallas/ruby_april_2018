@@ -27,6 +27,7 @@ NOTE: If you don't get in at least one pull request daily, then *_ya ain't serio
 Intro - https://youtu.be/XfbT0kzTHTk <br>
 OOP Visibility - https://youtu.be/K6kvQKuu384 <br>
 Model I - https://youtu.be/sYGLc39Rwwk <br>
+Routes/Whitelisting - https://youtu.be/ySsDwaXGExE <br>
 
 ## Demos
 Virtual Machine - https://youtu.be/XfbT0kzTHTk <br>
