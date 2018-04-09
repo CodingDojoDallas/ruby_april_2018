@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>  <%= @this_dojo.city %> Dojo  </title>
+	</head>
+	<body>
+		<main>
+			<div id="info">
+				<h1> <%= @this_dojo.city %> Dojo </h1>
+				<h3> Address: <%= @this_dojo.street %> </h3>
+				<h3> City: <%= @this_dojo.city %> State: <%= @this_dojo.state %> </h3>
+				<p> <a href="/dojos"> Home </a> | <a href="/dojos/<%= @this_dojo.id %>/edit"> Edit </a> </p>
+			</div>
+		</main>
+	</body>
+</html>
