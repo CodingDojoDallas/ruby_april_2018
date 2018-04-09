@@ -47,6 +47,8 @@ greater [1,3,5,7], 3
 # Square the values
 def square arr
 	y = []
+	# use MAP to return a new array with new values instead of this long way
+	# can also use y << i*i instead of 'push' or 'append'
 	arr.select { |i| y.push(i*i) }
 	p y
 end
@@ -61,6 +63,8 @@ eliminate [1,5,10,-2]
 
 # Max, Min, and Average
 def hash arr
+	# could also do
+	# return {max: arr.max, min: arr.min, avg: arr.reduce(:+).to_f / arr.size }
 	arr_hash =  {max: arr.max, min: arr.min, avg: arr.reduce(:+).to_f / arr.size }
 	p arr_hash
 end

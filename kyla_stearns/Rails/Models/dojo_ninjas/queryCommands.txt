@@ -1,0 +1,38 @@
+Hirb.enable
+Dojo.create(name: "CodingDojo Silicon Valley", city:"Mountain View", state: "CA")
+Dojo.create(name: "CodingDojo Seattle", city:"Seattle", state: "WA")
+Dojo.create(name: "CodingDojo New York", city:"New York", state: "NY")
+Dojo.all
+-- confirmed ninja.rb had "belongs_to :dojo" & added to dojo.rb "has_many :ninjas" + validations --
+reload!
+Ninja.create(dojo: Dojo.first, first_name: "Kyla", last_name: "Stearns")
+Ninja.create(dojo: Dojo.first, first_name: "Zack", last_name: "Pieper")
+Ninja.create(dojo: Dojo.second, first_name: "Ryan", last_name: "Mitchell")
+Ninja.create(dojo: Dojo.second, first_name: "Dillon", last_name: "Votaw")
+Ninja.create(dojo: Dojo.third, first_name: "Riya", last_name: "Wasnik")
+Ninja.create(dojo: Dojo.third, first_name: "Robert", last_name: "Shin")
+
+
+Ninja.first.dojo
+Dojo.first.ninjas
+
+Dojo.destroy_all
+dojo1 = Dojo.new
+dojo2 = Dojo.new
+dojo3 = Dojo.new
+
+dojo1.name = "CodingDojo Chicago"
+dojo1.city = "Chicago"
+dojo1.state = "IL"
+dojo1.valid?
+dojo1.save
+
+dojo2.name = "CodingDojo Denver"
+dojo2.city = "Denver"
+dojo2.state = "C"
+dojo2.valid?
+dojo2.state = "CO"
+dojo2.save
+
+Dojo.second.ninjas.select('first_name').order('created_at DESC')
+Dojo.second.destroy
