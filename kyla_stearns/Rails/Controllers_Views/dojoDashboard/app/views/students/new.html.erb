@@ -26,9 +26,8 @@
 				<input type="text" name="student[email]"> 
 
 				<label> Dojo: </label>
-				<input type="hidden"  name="student[dojo_id]" value="<%= @this_dojo.id %>">
-				<select>
-					<option> <%= @this_dojo.branch %> </option>
+				<select name="student[dojo_id]">
+					<option value="<%= @this_dojo.id %>" > <%= @this_dojo.branch %> </option>
 				</select>
 
 				<input type="submit" name="Create">	
