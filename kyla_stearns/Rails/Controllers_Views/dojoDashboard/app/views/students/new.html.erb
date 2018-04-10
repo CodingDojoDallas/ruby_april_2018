@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> New Student for <%= @this_dojo.city %> Dojo </title>
+	</head>
+	<body>
+		<main>
+			<% if flash[:errors] %>	
+				<div id="alert">
+					<% flash[:errors].each do |error| %>	
+		     		<h4><%= error %></h4>
+		     		<% end %>
+				</div>
+			<% end %>
+
+			<h1> New Student for <%= @this_dojo.branch %> </h1>
+			<form action="<%= students_create_path(@this_dojo.id) %>" method="POST">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+				<label> First Name: </label>
+				<input type="text" name="student[first_name]"> 
+
+				<label> Last Name: </label>
+				<input type="text" name="student[last_name]">
+
+				<label> Email: </label>
+				<input type="text" name="student[email]"> 
+
+				<label> Dojo: </label>
+				<input type="hidden"  name="student[dojo_id]" value="<%= @this_dojo.id %>">
+				<select>
+					<option> <%= @this_dojo.branch %> </option>
+				</select>
+
+				<input type="submit" name="Create">	
+			</form>
+			<a href="<%= dojos_path %>"> Home </a> | <a href="<%= dojos_show_path(@this_dojo.id) %>"> <%= @this_dojo.branch %> </a>
+		</main>
+	</body>
+</html>

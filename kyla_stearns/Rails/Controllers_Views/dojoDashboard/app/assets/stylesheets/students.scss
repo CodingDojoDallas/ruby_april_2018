@@ -52,6 +52,14 @@ input{
 	display: block;
 }
 
+select{
+	display: block;
+	width: 170px;
+	margin: 5px 0px 0px 10px;
+	border-radius: none;
+	font-size: 16px;
+}
+
 input[type=submit]{
 	padding: 5px;
 	font-size: 14px;
@@ -61,29 +69,22 @@ input[type=submit]{
 	margin: 10px 0px 10px 10px;
 }
 
-select{
-	display: block;
-	width: 170px;
-	margin: 5px 0px 0px 10px;
-	border-radius: none;
-	font-size: 16px;
-}
-
-#dojo_info{
-	/*this box is for showing info on just one  */
+#student_info{
+	/*this box is for showing info on just one dojo */
 	padding: 5px;
+	height: 50px;
+	width: 250px;
 }
 
-#dojo_info h1{
-	display: inline;
+#student_info h1{
 	margin-bottom: 25px;
 }
 
-#dojo_info h3{
+#student_info h3{
 	margin: 15px 0px 15px 0px;
 }
 
-#dojo_info p{
+#student_info p{
 	margin-left: 150px;
 }
 

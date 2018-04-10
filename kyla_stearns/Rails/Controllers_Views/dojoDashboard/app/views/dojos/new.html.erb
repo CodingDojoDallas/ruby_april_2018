@@ -14,7 +14,7 @@
 			<% end %>
 
 			<h1> New Dojo </h1>
-			<form action='/create' method='POST'>
+			<form action="<%= dojos_create_path %>" method="POST">
 				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 				<label> Branch: </label>
 				<input type="text" name="dojo[branch]"> 
@@ -29,7 +29,7 @@
 				<input type="text" name="dojo[state]">
 				<input type="submit" name="Create">	
 			</form>
-			<a href="/dojos"> Home </a>
+			<a href="<%= dojos_path %>"> Home </a>
 		</main>
 	</body>
 </html>

@@ -14,7 +14,7 @@
 			<% end %>
 
 			<h1> Editing <%= @this_dojo.city %> </h1>
-			<form action='/dojos/<%= @this_dojo.id %>/update' method='POST'>
+			<form action="<%= dojos_update_path(@this_dojo.id) %>" method="POST">
 				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 				<input type="hidden" name="_method" value="patch">
 				<label> Branch: </label>
@@ -30,7 +30,7 @@
 				<input type="text" name="dojo[state]" value="<%= @this_dojo.state %>">
 				<input type="submit" name="Update">	
 			</form>
-			<a href="/dojos"> Home </a> | <a href="/dojos/<%= @this_dojo.id %>"> Show </a>
+			<a href="<%= dojos_path %>"> Home </a> | <a href="<%= dojos_show_path(@this_dojo.id) %>"> Show </a>
 		</main>
 	</body>
 </html>
