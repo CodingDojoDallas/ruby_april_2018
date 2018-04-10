@@ -1,0 +1,19 @@
+<h1>create student</h1>
+<form action="<%= create_path %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="text" name="student[name]">
+	<select name="student[dojo]">
+		<option value="dallas">Dallas Dojo</option>
+		<option value="silicon valley">Silicon Valley Dojo</option>
+		<option value="seattle">Seattle Dojo</option>
+		<option value="new york">New York Dojo</option>
+	</select>
+	<select name="student[language]">
+		<option value="javascript">Javascript</option>
+		<option value="python">Python</option>
+		<option value="ruby">Ruby</option>
+		<option value="css">CSS</option>
+	</select>
+	<input type="text" name="student[comment]">
+	<input type="submit">
+</form>
