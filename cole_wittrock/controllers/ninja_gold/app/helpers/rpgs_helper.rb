@@ -1,0 +1,2 @@
+module RpgsHelper
+end
