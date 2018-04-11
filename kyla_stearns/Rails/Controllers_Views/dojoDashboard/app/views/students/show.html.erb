@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>  <%= @this_student.first_name %> <%= @this_student.last_name %>  </title>
+	</head>
+	<body>
+		<main>
+			<h1> <%= @this_dojo.city %>'s <%= @this_student.first_name %> <%= @this_student.last_name %></h1> 
+			<div id="student_info">
+				<h3> Email: <%= @this_student.email %> </h3>
+		
+			</div>
+			<h2> Cohort </h2>
+			<table>
+				<thead>
+					<th> First Name </th>
+					<th> Last Name </th>
+					<th> Email </th>
+				</thead>
+				<tbody>
+				<% @these_students.each do |student| %>
+					<tr>
+						<td> <%= student.first_name %> </td>
+						<td> <%= student.last_name %> </td>
+						<td> <%= student.email %> </td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+
+				<p> <a href="<%= dojos_path %>"> Home </a> | <a href="<%= students_edit_path(@this_student.dojo_id, @this_student.id) %>" > Edit </a> </p>
+		</main>
+	</body>
+</html>

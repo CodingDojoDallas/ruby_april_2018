@@ -28,6 +28,7 @@ Intro - https://youtu.be/XfbT0kzTHTk <br>
 OOP Visibility - https://youtu.be/K6kvQKuu384 <br>
 Model I - https://youtu.be/sYGLc39Rwwk <br>
 Routes/Whitelisting - https://youtu.be/ySsDwaXGExE <br>
+Models Review - https://youtu.be/m0QmSo2IGAc <br>
 
 ## Demos
 Virtual Machine - https://youtu.be/XfbT0kzTHTk <br>

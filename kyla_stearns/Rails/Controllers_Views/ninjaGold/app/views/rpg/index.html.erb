@@ -59,7 +59,7 @@
 			<h4> Activites: </h4>
 			<div id="activities"> 
 				<% if session[:content].any? %>
-					<% session[:content].each do |element| %>
+					<% session[:content].reverse_each do |element| %>
 					<p class ="<%= element["color"] %>"> <%= element["msg"] %> </p>
 					<% end %>
 				<% end %>

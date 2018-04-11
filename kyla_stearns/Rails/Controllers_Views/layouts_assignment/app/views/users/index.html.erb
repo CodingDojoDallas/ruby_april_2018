@@ -1,0 +1,38 @@
+<% content_for :left_column do %>
+	<h1> All Users </h1>
+	<table>
+		<thead>
+			<th> First Name </th>
+			<th> Last Name </th>
+			<th> Favorite Language </th>
+		</thead>
+		<tbody>
+			<% @all_users.each do |user| %>
+				<tr>
+					<td> <%= user.first_name %> </td>
+					<td> <%= user.last_name %> </td>
+					<td> <%= user.favorite_language %> </td>
+				</tr>	
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<% content_for :right_column do %>
+	<h1> New User </h1>
+	<form action="<%= new_path %>" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+		<label> First Name: </label>
+		<input type="text" name="user[first_name]"> 
+
+		<label> Last Name: </label>
+		<input type="text" name="user[last_name]">
+
+		<label> Favorite Language: </label>
+		<input type="text" name="user[favorite_language]"> 
+
+		<input type="submit" name="Submit">
+	</form>
+	<a href="<%= posts_path %>"> <button> All Posts </button> </a>
+<% end %>

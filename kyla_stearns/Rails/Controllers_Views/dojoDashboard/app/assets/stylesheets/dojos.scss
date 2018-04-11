@@ -61,23 +61,29 @@ input[type=submit]{
 	margin: 10px 0px 10px 10px;
 }
 
-#info{
-	/*this box is for showing info on just one  */
-	/*border: 2px solid black;*/
-	padding: 5px;
-	height: 150px;
-	width: 250px;
+select{
+	display: block;
+	width: 170px;
+	margin: 5px 0px 0px 10px;
+	border-radius: none;
+	font-size: 16px;
 }
 
-#info h1{
+#dojo_info{
+	/*this box is for showing info on just one  */
+	padding: 5px;
+}
+
+#dojo_info h1{
+	display: inline;
 	margin-bottom: 25px;
 }
 
-#info h3{
+#dojo_info h3{
 	margin: 15px 0px 15px 0px;
 }
 
-#info p{
+#dojo_info p{
 	margin-left: 150px;
 }
 
