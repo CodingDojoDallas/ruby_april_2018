@@ -1,0 +1,47 @@
+h1{
+	margin: 15px 0px 15px 0px;
+}
+
+table{
+	border: 2px solid black;
+	font-size: 13px;
+}
+
+thead{
+	background-color: lightgrey;
+	border-bottom: 2px solid black;
+}
+
+th{
+	padding: 3px 30px 3px 3px;
+}
+
+tr{
+	border-bottom: 1px solid black;
+}
+
+td{
+	padding: 3px 50px 3px 3px;
+}
+
+label{
+	display: block;
+}
+
+input{
+	display: block;
+	margin: 5px 0px 5px 0px;
+}
+
+input[type=submit]{
+	border-radius: 5px;
+	color: white;
+	background-color: #007DB8;
+	margin: 15px 0px 15px 0px;
+}
+
+button{
+	border-radius: 5px;
+	color: white;
+	background-color: #00C4DF;
+}

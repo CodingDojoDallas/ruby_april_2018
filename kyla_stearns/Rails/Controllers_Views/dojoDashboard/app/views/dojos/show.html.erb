@@ -5,12 +5,32 @@
 	</head>
 	<body>
 		<main>
-			<div id="info">
-				<h1> <%= @this_dojo.city %> Dojo </h1>
+			<div id="dojo_info">
+				<h1> <%= @this_dojo.city %> Dojo </h1> <a href="<%= dojos_edit_path(@this_dojo.id) %>"> Edit </a>
 				<h3> Address: <%= @this_dojo.street %> </h3>
 				<h3> City: <%= @this_dojo.city %> State: <%= @this_dojo.state %> </h3>
-				<p> <a href="/dojos"> Home </a> | <a href="/dojos/<%= @this_dojo.id %>/edit"> Edit </a> </p>
 			</div>
+				<h2> Student Roster </h2>
+				<table>
+					<thead>
+						<th> First Name </th>
+						<th> Last Name </th>
+						<th> Email </th>
+						<th> Actions </th>
+					</thead>
+					<tbody>
+					<% @all_students.each do |student| %>
+						<tr>
+							<td> <%= student.first_name %> </td>
+							<td> <%= student.last_name %> </td>
+							<td> <%= student.email %> </td>
+							<td> <a href="<%= students_show_path(student.dojo_id,student.id) %>"> Show </a> | <a href="<%= students_edit_path(student.dojo_id,student.id) %>"> Edit </a> | <a href="<%= students_delete_path(student.dojo_id,student.id) %>" data-method="delete"> Destroy </a> </td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+
+				<p> <a href="<%= dojos_path %>"> Home </a> | <a href="<%= students_new_path(@this_dojo.id) %>"> Add Student </a> </p>
 		</main>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> All the Dojos</title>
+		<title> All the Dojos </title>
 	</head>
 	<body>
 		<main>
@@ -21,12 +21,12 @@
 						<td> <%= dojo.street %> </td>
 						<td> <%= dojo.city %> </td>
 						<td> <%= dojo.state %> </td>
-						<td> <a href="/dojos/<%= dojo.id %>"> Show </a> | <a href="/dojos/<%= dojo.id %>/edit"> Edit </a> | <a href="/dojos/<%= dojo.id %>/delete" data-method="delete"> Destroy </a> </td>
+						<td> <a href="<%= dojos_show_path(dojo.id) %>"> Show </a> | <a href="<%= dojos_edit_path(dojo.id) %>"> Edit </a> | <a href="<%= dojos_delete_path(dojo.id) %> " data-method="delete"> Destroy </a> </td>
 					</tr>
 				<% end %>
 				</tbody>
 			</table>
-			<a href="/dojos/new"> Add a New Dojo </a>
+			<a href="<%= dojos_new_path %>"> Add a New Dojo </a>
 		</main>
 	</body>
 </html>
