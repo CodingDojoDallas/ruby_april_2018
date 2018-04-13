@@ -1,0 +1,19 @@
+<%= form_for :dojo do |f| %>
+  <% if @dojo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dojo.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @dojo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  branch : <%= f.text_field :branch %><br />
+  street : <%= f.text_field :street %><br />
+  city : <%= f.text_field :city %><br />
+  state : <%= f.text_field :state %><br />
+  <%= f.submit %>
+  <% end %>

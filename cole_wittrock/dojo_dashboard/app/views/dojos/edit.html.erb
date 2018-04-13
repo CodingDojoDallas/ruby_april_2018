@@ -1,0 +1,19 @@
+<h1>Edit <%=@dojo.branch%></h1>
+
+<form action="<%= update_path %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	<input type="hidden" name="_method" value="patch">
+
+	<input type="hidden" name="dojo[id]" value="<%= @dojo.id %>">
+
+	branch: <input type="text" name="dojo[branch]" value="<%= @dojo.branch %>">
+
+	street: <input type="text" name="dojo[street]" value="<%= @dojo.street %>">
+
+	city: <input type="text" name="dojo[city]" value="<%= @dojo.city %>">
+
+	state: <input type="text" name="dojo[state]" value="<%= @dojo.state %>">
+
+	<input type="submit">
+</form>
