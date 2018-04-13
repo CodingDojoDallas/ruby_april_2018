@@ -1,0 +1,58 @@
+// Place all the styles related to the Rpg controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    width: 1200px;
+    font-family: "Verdana", Geneva, Tahoma, sans-serif;
+}
+
+#wallet{
+    margin: 10px 0px;
+}
+
+.label{
+    display: inline-block;
+}
+
+.gold{
+    display:inline-block;
+    border: 1px solid black;
+    width: 80px;
+}
+
+.reset{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#building{
+    border: 1px solid black;
+    display:inline-block;
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    margin: 20px;
+}
+
+#building h3 {
+    margin: 10px 0px;
+}
+
+#building p {
+    margin: 10px 0px;
+}
+
+#building input {
+    margin: 10px 0px;
+}
+
+#activities{
+    overflow: auto;
+    border: 1px solid black;
+    height: 200px;
+}
