@@ -1,0 +1,16 @@
+<% if flash[:errors] %>
+<% flash[:errors].each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+        <%= value %>
+    </div>
+    <% end %>
+<% end %>
+
+<form action="/sessions/new" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">  
+    <label for="Email">Email</label>
+    <input type="text" name="Email">
+    <label for="Password">Password</label>
+    <input type="text" name="Password">
+    <input type="submit" name="login" value="Log In">
+</form>
