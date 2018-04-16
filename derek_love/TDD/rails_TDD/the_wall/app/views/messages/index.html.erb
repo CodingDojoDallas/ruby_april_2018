@@ -1,0 +1,22 @@
+<div id="header">
+    <h1>Welcome, <%= @user.username %></h1>
+    <a href="/users/new">Log Out</a>
+</div>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p id="errors">
+            <%= error %>
+        </p>
+    <% end %>
+<% end %>
+<form action="/messages" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="message[user_id]" value="<%= @user.id %>">
+    <textarea name="message[content]" id="message_content" cols="30" rows="10"></textarea>
+    <input type="submit" value="Post a Message">
+</form>
+<% @messages.each do |message| %>
+<p><%= message.user.username %> - <%= message.created_at.strftime("%B, %e, %Y") %></p>
+<p><%= message.content %></p>
+<% end %>
