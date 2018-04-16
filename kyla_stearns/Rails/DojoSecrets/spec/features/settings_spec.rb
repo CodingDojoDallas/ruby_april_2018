@@ -35,8 +35,8 @@ feature "User Settings features" do
 		end
 
 		scenario "destroys user and redirects to registration page" do
-			p current_path, "DESTROY TEST CURRENT PATH"
-			click_button "Delete Account"
+			# p current_path, "DESTROY TEST CURRENT PATH"
+			click_link "Delete Account"
 			expect(current_path).to eq(new_user_path)
 		end
 	end

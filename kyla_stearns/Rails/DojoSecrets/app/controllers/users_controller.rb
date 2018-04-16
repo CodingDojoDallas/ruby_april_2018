@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-	
+	before_action :user_info, except: [:new, :create]
+	skip_before_action :require_login, only: [:new, :create]
+
 	def new
 	# render form to register/create user
 	end
@@ -19,6 +21,8 @@ class UsersController < ApplicationController
 	def show
 	# render show page template
 		@this_user = User.find_by(id: params[:id])
+		@user_secrets = @this_user.secrets
+		@user_liked = @this_user.secrets_liked
 	end
 
 	def edit
@@ -40,10 +44,10 @@ class UsersController < ApplicationController
 	def destroy
 	# pull user info to delete from database
 		@this_user = User.find_by(id: params[:id])
-		p @this_user, "INSIDE DESTROY METHOD WITH USER"
+		# p @this_user, "INSIDE DESTROY METHOD WITH USER"
 		@this_user.destroy
 		session[:id] = nil
-		redirect_to new_user_path
+		return redirect_to new_user_path
 	end
 
 	private
@@ -51,4 +55,13 @@ class UsersController < ApplicationController
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
 		end
 
+		def user_info
+			# p params[:id], "user_info with params[:id]"
+			# p session[:id], "user_info with session[:id]"
+			# params[:id] will be in string format, session[:id] will already be integer format
+			unless params[:id].to_i == session[:id]
+				flash[:errors] = ["You cannot access other users' information."]
+  				return redirect_to user_path(session[:id])
+  			end
+		end
 end

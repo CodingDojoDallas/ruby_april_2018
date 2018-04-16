@@ -1,2 +1,34 @@
-<h3> Welcome, <%= @this_user.name %> </h3> <a href="<%= edit_user_path(@this_user.id) %>"> Edit Profile </a>
+<header>
+	<h3> Welcome, <%= @this_user.name %> </h3> 
+	<a href="<%= edit_user_path(@this_user.id) %>"> Edit Profile </a>
+</header>
 <h4> New Secret </h4>
+<form action="<%= secrets_path %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<input type="hidden" name="secret[user_id]" value="<%= @this_user.id %>">
+	<input type="textarea" name="secret[content]">
+	<button type="submit"> Create Secret </button>
+</form>
+
+<div id="secrets">
+	<div id="mine">
+		<h4> Secrets </h4>
+		<% @user_secrets.each do |secret| %>
+			<div>
+				<p> <%= secret.content %> </p>
+				<p> <%= secret.likes.count %> like(s) </p>
+				<a href="<%= secret_path(secret.id) %>" data-method="delete"><button> Delete </button></a>
+			</div>
+		<% end %>
+	</div>
+
+	<div id="liked">
+		<h4> Secrets Liked </h4>
+		<% @user_liked.each do |like| %>
+			<div>
+				<p> <%= like.content %> </p>
+				<p> <%= like.likes.count %> like(s) </p>
+			</div>
+		<% end %>
+	</div>
+</div>
