@@ -1,0 +1,14 @@
+Comment.create(commentable: User.first, text: "noooo")
+Comment.create(commentable: Blog.first, text: "this blog sucks")
+Comment.create(commentable: Post.first, text: "this post sucks")
+Comment.create(commentable: Message.first, text: "this message sucks")
+
+User.first.comments.find(3).update(text: "i hate you")
+Blog.first.comments.find(6).update(text: "beep boop i am computer")
+Post.first.comments.find(7).update(text: "i will boop you with a blep")
+Message.first.comments.find(8).update(text: "do the herkajerk")
+
+User.first.comments.destroy_all
+Blog.first.comments.destroy(6)
+Post.first.comments.destroy(7)
+Message.first.comments.destroy(8)

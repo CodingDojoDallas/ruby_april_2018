@@ -1,0 +1,49 @@
+<% content_for :left_column do %>
+    <h1>All Users</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Favorite Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.first_name %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.favorite_language %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
+<% content_for :right_column do %>
+    <h1>New User</h1>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p id="errors">
+                <%= error %>
+            </p>
+        <% end %>
+    <% end %>
+    <form action="/users" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label for="user[first_name]">First Name</label>
+            <input type="text" class="form-control" name="user[first_name]">
+        </div>
+        <div class="form-group">
+            <label for="user[last_name]">Last Name</label>
+            <input type="text" class="form-control" name="user[last_name]">
+        </div>
+        <div class="form-group">
+            <label for="user[favorite_language]">Favorite Language</label>
+            <input type="text" class="form-control" name="user[favorite_language]">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <a id="link" class="btn btn-info" href="/posts" role="button">All Posts</a>
+<% end %>
+

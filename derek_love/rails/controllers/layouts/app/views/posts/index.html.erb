@@ -1,0 +1,57 @@
+<% content_for :left_column do %>
+    <h1>All Posts</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |post| %>
+            <tr>
+                <td><%= post.title %></td>
+                <td><%= post.content %></td>
+                <td><%= post.user.first_name %> <%= post.user.last_name %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
+<% content_for :middle_column do %>
+    <h1>New Post</h1>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p id="errors">
+                <%= error %>
+            </p>
+        <% end %>
+    <% end %>
+    <form action="/posts" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label for="post[title]">Title</label>
+            <input type="text" class="form-control" name="post[title]">
+        </div>
+        <div class="form-group">
+            <label for="post[content]">Content</label>
+            <textarea type="text" class="form-control" name="post[content]" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="post[user_id]">Author</label>
+            <select class="form-control" name="post[user_id]">
+                <% @users.each do |user| %>
+                <option value="<%= user.id %>">
+                    <%= user.first_name %> <%= user.last_name%>
+                </option>
+                <% end %>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+<% end %>
+<% content_for :right_column do %>
+    <h1>Go to Users Page</h1>
+    <a class="btn btn-info" href="/users" role="button">All Users</a>
+<% end %>

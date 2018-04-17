@@ -1,0 +1,15 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+label {
+    display: block;
+}
+
+textarea, input {
+    width: 100%;
+}
