@@ -1,0 +1,29 @@
+<% content_for  :left_column do %>
+<h1>all users</h1>
+<table>
+	<thead>
+		<th>first_name</th>
+		<th>last_name</th>
+		<th>favorite_language</th>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.first_name %></td>
+			<td><%= user.last_name %></td>
+			<td><%= user.favorite_language %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>
+<% content_for :right_column do %>
+<h1>create a user</h1>
+	<form action="/user/create" method="post">
+		<input type="hidden" name="authenticity_token" value="form_authenticity_token">
+		<label>first name: <input type="text" name="first_name"></label>
+		<label>last name: <input type="text" name="last_name"></label>
+		<label>favorite language: <input type="text" name="favorite_language"></label>
+		<input type="submit">		
+	</form>
+<% end %>

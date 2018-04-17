@@ -1,0 +1,21 @@
+<%= form_for :student do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% dojos_array = Dojo.all.map { |dojo| [dojo.branch, dojo.id] } %>
+
+  first name  : <%= f.text_field :first_name %><br />
+  last name   : <%= f.text_field :last_name %><br />
+  email       : <%= f.text_field :email %><br />
+  dojo        : <%= f.collection_select :dojo_id, Dojo.all, :id, :branch %><br />
+
+  <%= f.submit %>
+  <% end %>
