@@ -1,0 +1,12 @@
+<h1> Edit <%= @this_user.name %> </h1>
+
+<form action="<%= user_path(@this_user.id) %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<input type="hidden" name="_method" value="patch">
+	<label> Name </label>
+	<input type="text" name="user[name]" value="<%= @this_user.name %>">
+	<label> Email </label>
+	<input type="text" name="user[email]" value="<%= @this_user.email %>">
+	<button type="submit"> Update User </button>
+</form>
+<a href="<%= user_path(@this_user.id) %>" data-method="delete"><button> Delete Account </button></a>
