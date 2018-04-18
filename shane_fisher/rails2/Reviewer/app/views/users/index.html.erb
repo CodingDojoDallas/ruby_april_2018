@@ -1,0 +1,52 @@
+<% content_for :left_column do %>
+
+<div class="wrapper">
+<form action="/users" method="post">
+    <div class="form-group">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <label for="user[first_name]">First Name</label>
+        <input type="text" class="form-control" name="user[first_name]">
+    </div>
+    <div class="form-group">
+        <label for="user[last_name]">Last Name</label>
+        <input type="text" class="form-control" name="user[last_name]">
+    </div>
+    <div class="form-group">
+        <label for="user[email]">Email</label>
+        <input type="text" class="form-control" name="user[email]">
+    </div>
+    <div class="form-group">
+        <label for="user[city]">Location</label>
+        <input type="text" class="form-control" name="user[city]">
+        <%= select_tag 'user[state]', options_for_select(us_states) %>
+    </div>
+    <div class="form-group">
+        <label for="user[password]">Password:</label>
+        <input type="password" class="form-control" name="user[password]">
+    </div>
+    <div class="form-group">
+        <label for="user[password_confirmation]">Confirm PW:</label>
+        <input type="password" class="form-control" name="user[password_confirmation]">
+    </div>
+    <input type="submit" class="btn btn-primary" value="submit">
+</form>
+</div>
+
+<% end %>
+
+<% content_for :right_column do %>
+<div class="wrapper">
+<form action="/sessions" method="post">
+    <div class="form-group">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email">
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <input type="submit" class="btn btn-primary" value="submit">
+</form>
+</div>
+<% end %>

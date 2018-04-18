@@ -1,0 +1,24 @@
+<h3>Edit Your Profile</h3>
+<form action="/users/:id" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div class="form-group">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <label for="user[first_name]">First Name</label>
+        <input type="text" class="form-control" name="user[first_name]" value="<%= current_user.first_name %>">
+    </div>
+    <div class="form-group">
+        <label for="user[last_name]">Last Name</label>
+        <input type="text" class="form-control" name="user[last_name]" value="<%= current_user.last_name %>">
+    </div>
+    <div class="form-group">
+        <label for="user[email]">Email</label>
+        <input type="text" class="form-control" name="user[email]" value="<%= current_user.email %>">
+    </div>
+    <div class="form-group">
+        <label for="user[city]">Location</label>
+        <input type="text" class="form-control" name="user[city]" value="<%= current_user.city %>">
+        <%= select_tag 'user[state]', options_for_select(us_states, selected = current_user.state)%>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Update Records">
+</form>
+</div>
