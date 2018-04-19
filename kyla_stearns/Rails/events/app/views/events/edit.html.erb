@@ -1,0 +1,22 @@
+<header>
+	<h1 class="welcome"> Edit Your Event </h1>
+	<a href="<%= events_path %>"> Events Dashboard </a>
+</header>
+
+<form action="<%= event_path %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<input type="hidden" name="_method" value="patch">
+	<label> Name </label>
+	<input type="text" name="event[name]" value="<%= @this_event.name %>">
+	<label> Date </label>
+	<input type="date" name="event[date]" value="<%= @this_event.date %>">
+	<label> Location </label>
+	<input class="city" type="text" name="event[city]" value="<%= @this_event.city %>">
+	<select name="event[state]">
+		<option> <%= @this_event.state %> </option>
+		<% all_states.each do |state| %>
+			<option> <%= state %> </option>
+		<% end %>
+	</select>
+	<button type="submit"> Update Records </button>
+</form>

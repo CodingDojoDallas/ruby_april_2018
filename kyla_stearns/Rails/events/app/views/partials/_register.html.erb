@@ -1,0 +1,23 @@
+<h1> Register </h1>
+
+<form action="<%= users_path %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<label> First Name </label>
+	<input type="text" name="user[first_name]">
+	<label> Last Name </label>
+	<input type="text" name="user[last_name]">
+	<label> Email </label>
+	<input type="text" name="user[email]">
+	<label> Location </label>
+	<input class="city" type="text" name="user[city]">
+	<select name="user[state]">
+		<% all_states.each do |state| %>
+			<option> <%= state %> </option>
+		<% end %>
+	</select>
+	<label> Password </label>
+	<input type="password" name="user[password]">
+	<label> Password Confirmation </label>
+	<input type="password" name="user[password_confirmation]">
+	<button type="submit"> Register </button>
+</form>

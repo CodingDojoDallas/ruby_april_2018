@@ -1,0 +1,24 @@
+<header>
+	<h1 class="welcome"> Edit Your Profile </h1>
+	<a href="<%= events_path %>"> Events Dashboard </a>
+</header>
+
+<form action="<%= user_path %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<input type="hidden" name="_method" value="patch">
+	<label> First Name </label>
+	<input type="text" name="user[first_name]" value="<%= @this_user.first_name %>">
+	<label> Last Name </label>
+	<input type="text" name="user[last_name]" value="<%= @this_user.last_name %>">
+	<label> Email </label>
+	<input type="text" name="user[email]" value="<%= @this_user.email %>">
+	<label> Location </label>
+	<input class="city" type="text" name="user[city]" value="<%= @this_user.city %>">
+	<select name="user[state]">
+		<option> <%= @this_user.state %> </option>
+		<% all_states.each do |state| %>
+			<option> <%= state %> </option>
+		<% end %>
+	</select>
+	<button type="submit"> Update Records </button>
+</form>
