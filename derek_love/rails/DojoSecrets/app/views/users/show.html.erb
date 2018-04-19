@@ -1,0 +1,24 @@
+<h1><%= current_user.first_name %></h1>
+
+<% if flash[:errors] %>
+    <p id="errors">
+        <%= flash[:errors] %>
+    </p>
+<% end %>
+
+<form action="<%= secrets_path %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <textarea name="secret[content]" cols="30" rows="10"></textarea>
+    <input type="hidden" name="secret[user_id]" value="<%= current_user.id %>">
+    <input type="submit" value="Create Secret">
+</form>
+
+<div id="user_secrets">
+    <h4>My Secrets</h4>
+    <% current_user.secrets.each do |secret| %>
+        <p><%= secret.content %></p>
+        <a href="<%= secret_path(secret.id) %>" data-method="delete">
+            <button>Delete Secret</button>
+        </a>
+    <% end %>
+</div>

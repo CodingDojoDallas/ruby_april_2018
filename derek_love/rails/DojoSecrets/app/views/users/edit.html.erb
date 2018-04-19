@@ -1,0 +1,28 @@
+<h1>Edit <%= @user.first_name %></h1>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p id="errors">
+            <%= error %>
+        </p>
+    <% end %>
+<% end %>
+
+<form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="user[first_name]">First Name</label>
+    <input type="text" name="user[first_name]" value="<%= @user.first_name %>">
+
+    <label for="user[last_name]">Last Name</label>
+    <input type="text" name="user[last_name]" value="<%= @user.last_name %>">
+
+    <label for="user[email]">Email</label>
+    <input type="email" name="user[email]" value="<%= @user.email %>">
+
+    <input type="submit" value="Update">
+</form>
+
+<a href="/users/<%= @user.id %>" data-method="delete">Delete Account</a>
