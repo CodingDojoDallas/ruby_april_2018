@@ -1,0 +1,113 @@
+### Git Repo ###
+	*** Key Notes ***
+	Make sure project is not already in a git repo (class repo)
+	Create a new github repository
+
+### AWS Instance - Refer to platform/instructor video for setup ###
+	*** Key Notes ***
+	server: ubuntu 16.04 LTS (Platform uses 14.04)
+	security groups: SSH, HTTP, HTTPS
+	generate new ssh key
+
+# Navigate to directory where we downloaded our <key>.pem file
+# Only have to run the following command once
+> chmod 400 <key>.pem
+> ssh -i <key>.pem ubuntu@<public.ip.address>
+    # If prompted to 'Are you sure you want to continue connecting?' then, type yes and enter
+    > yes
+
+> sudo apt-get update
+> sudo apt-get -y upgrade
+
+### Ruby and Rails Installation ###
+> gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+> \curl -sSL https://get.rvm.io | bash -s stable
+> source ~/.rvm/scripts/rvm
+> rvm requirements
+> rvmsudo /usr/bin/apt-get -y install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+
+### SWAP FILE ###
+> sudo dd if=/dev/zero of=/swap bs=1M count=1024
+> sudo mkswap /swap
+> sudo chmod 0600 /swap
+> sudo swapon /swap
+
+> sudo apt-get -y install libcurl4-openssl-dev
+
+### RUBY ###
+> rvm install 2.3.1
+> rvm use 2.3.1 --default
+> rvm rubygems current --force
+
+### RAILS ###
+> gem install rails -v 4.2.7 --no-ri --no-rdoc
+
+### PASSENGER ###
+> gem install passenger
+
+> rvmsudo ~/.rvm/gems/ruby-2.3.1/gems/passenger-5.2.3/bin/passenger-install-nginx-module --auto --prefix=/etc/nginx --auto-download --extra-configure-flags=none --languages ruby,nodejs
+
+### POSTGRES (OPTIONAL IN PLACE FOR SQLITE3) ###
+> sudo apt-get -y install postgresql postgresql-contrib libpq-dev
+> sudo su postgres -c psql
+> CREATE ROLE ubuntu SUPERUSER LOGIN;
+> \q
+> 
+
+### NODE.JS and GIT ###
+> sudo apt-get -y install nodejs
+> sudo apt-get install git
+
+> cd /var
+> sudo mkdir /var/www
+> cd www
+
+### Pulling Rails project into AWS EC2 ###
+# First push your project to a new github repo
+> sudo git clone <github_url>
+> sudo chown ubuntu -R <repo_name>
+> cd <repo_name>
+> bundle install
+> sudo touch log/development.log
+> sudo chmod 0666 /var/www/<repo_name>/log/development.log
+> sudo vim config/database.yml
+    Update username
+    > username: ubuntu
+> rake db:create:all
+> rake db:migrate
+
+### Nginx ###
+> sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+> sudo chmod +x /etc/init.d/nginx
+> cd /etc/init.d
+> sudo vim nginx
+
+> Change line 21 to "/etc/nginx/conf/nginx.conf"
+> Change line 22 to "/etc/nginx/logs/nginx.pid"
+> Change line 87 to "NGINXPATH=${NGINXPATH:-/etc/nginx}"
+
+> sudo systemctl -l enable nginx
+> sudo systemctl -l start nginx
+
+> cd /etc/nginx
+> sudo mkdir sites-available
+> sudo mkdir sites-enabled
+
+> cd conf
+> sudo vim nginx.conf
+> Add to line 83 "include /etc/nginx/sites-enabled/*;"
+
+> cd /etc/nginx/sites-available
+> sudo touch rails.conf
+> sudo vim rails.conf
+# Add this to rails.conf:
+server {
+    listen 80; 
+    server_name 54.183.122.102; 
+    passenger_enabled on; 
+    passenger_app_env development; 
+    root /var/www/rails_login/public;
+}
+
+> sudo ln -s /etc/nginx/sites-available/rails.conf /etc/nginx/sites-enabled/rails.conf
+> sudo service nginx restart
