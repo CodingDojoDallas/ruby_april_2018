@@ -1,0 +1,56 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+body{
+	width: 970px;
+	margin: auto;
+	padding: 15px;
+	font-size: 16px;
+}
+
+#alert{
+	color: red;
+	font-weight: bold;
+}
+
+#logout{
+	display: block;
+	float: right;
+	margin-right: 50px;
+}
+
+form{
+	/* form for creating and editing */
+	padding: 5px;
+	margin: 0px 0px 25px 25px;
+}
+
+form button{
+	margin-left: 125px;
+}
+
+label{
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 15px 10px 15px 10px;
+}
+
+input{
+	font-size: 16px;
+	padding: 2px;
+	margin: 0px 0px 0px 10px;
+	display: block;
+}
+
+button{
+	padding: 5px;
+	font-size: 14px;
+	background-color: lightblue;
+	border: 2px solid black;
+	box-shadow: 2px 2px black;
+	margin: 10px 0px 10px 10px;
+}

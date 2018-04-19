@@ -1,0 +1,25 @@
+<% if flash[:success] %>
+<div class="success">
+    <p><%= flash[:success] %></p>
+</div>
+<% end %>
+<% if flash[:user_errors] %>
+    <% flash[:user_errors].each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+    <% end %>
+<% end %>
+
+<form action="/users/<%= current_user.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="put">
+    <label for="Name">Name</label>
+    <input type="text" name="Name" value="<%= current_user.name %>" >
+    <label for="Email">Email</label>
+    <input type="text" name="Email" value="<%= current_user.email %>">
+    <label for="Password">Password</label>
+    <input type="text" name="Password">
+    <input type="submit" name="Update" value="Update">
+</form>
+<a name="Delete Account" id="Delete Account" href='/users/<%= current_user.id %>' data-method="delete">Delete Account</a>

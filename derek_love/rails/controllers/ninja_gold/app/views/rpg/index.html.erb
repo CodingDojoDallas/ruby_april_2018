@@ -1,0 +1,48 @@
+<div id="wrapper">
+    <div id="wallet">
+        <p class="label">Your Gold:</p>
+        <p class="gold"><%= session["gold"] %></p>
+        <form class="reset" action="/reset" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="reset" value="Reset">
+        </form>
+    </div>
+    <div id="building">
+        <h3>Farm</h3>
+        <p>(earns 10-20 golds)</p>
+        <form action="/farm" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="submit" value="Find Gold!">
+        </form>
+    </div>
+    <div id="building">
+        <h3>Cave</h3>
+        <p>(earns 5-10 golds)</p>
+        <form action="/cave" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="submit" value="Find Gold!">
+        </form>
+    </div>
+    <div id="building">
+        <h3>House</h3>
+        <p>(earns 2-5 golds)</p>
+        <form action="/house" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="submit" value="Find Gold!">
+        </form>
+    </div>
+    <div id="building">
+        <h3>Casino</h3>
+        <p>(earns/takes 0-50 golds)</p>
+        <form action="/casino" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" name="submit" value="Find Gold!">
+        </form>
+    </div>
+    <p>Activities:</p>
+    <div id="activities">
+        <% session["activities"].each do |i| %>
+        <p><%= i %></p>
+        <% end %>
+    </div>
+</div>

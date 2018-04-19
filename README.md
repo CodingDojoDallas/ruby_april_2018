@@ -34,6 +34,9 @@ Models Review - https://youtu.be/m0QmSo2IGAc <br>
 Virtual Machine - https://youtu.be/XfbT0kzTHTk <br>
 Self-Join - https://youtu.be/FOCP29sCh8g <br>
 Ninja Gold - https://youtu.be/2p1978Wd-2Q <br>
+Login - https://youtu.be/zIxl4Q0TjEg <br>
+Belt Review - https://youtu.be/1nH0FiAJWt4 <br>
+Deployment - https://youtu.be/mfeBnAG2rbA <br>
 
 ## Resources
 
