@@ -1,0 +1,39 @@
+<h2><%= @event.name %></h2>
+<div id="event_info">
+<p>Host: <%= @event.user.first_name %></p>
+<p>Date: <%= @event.date.strftime('%B %d, %Y') %></p>
+<p>Location: <%= @event.city %>, <%= @event.state %></p>
+<p>People who are joining the event: <%= @event.joiners.count %></p>
+<table id="joiners_table" class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @event.joiners.each do |thing| %>
+            <tr>
+                <td><%= thing.first_name %> <%= thing.last_name %></td>
+                <td><%= thing.city %></td>
+                <td><%= thing.state %></td>
+        <% end %>
+    </tbody>
+</table>
+</div>
+<div id="discussion">
+    <p>Discussion about this event:</p>
+    <div id="discussion_scroll">
+        <% @comments.each do |comment| %>
+        <p><%= comment.user.first_name %> says: <%= comment.content %></p>
+        <p>..............................</p>
+        <% end %>
+    </div>
+    <form action="/comments" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="event_id" value="<%= @event.id %>">
+        <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+        <input type="submit" name="submit" value="Submit Comments">
+    </form>
+</div>

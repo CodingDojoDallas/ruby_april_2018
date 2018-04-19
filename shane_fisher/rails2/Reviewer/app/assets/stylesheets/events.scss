@@ -1,0 +1,25 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+    padding: 30px;
+}
+
+.header_menu {
+    float: right;
+    padding-top: 20px;
+    padding-right: 20px
+}
+
+#add_event {
+    width: 400px;
+    display: inline-block
+}
+
+a {
+    color: teal;
+}
+
+#joiners_table {
+    width: 400px
+}

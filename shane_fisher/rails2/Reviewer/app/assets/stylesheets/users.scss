@@ -1,0 +1,20 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+    padding: 30px;
+}
+
+#error_alert {
+    width: 400px;
+    margin: 0 auto;
+}
+
+form {
+    width: 400px;
+    height: 500px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+

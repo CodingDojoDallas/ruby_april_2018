@@ -1,0 +1,98 @@
+<div class="wrapper">
+
+<h2>Welcome, <%= current_user.first_name %></h2>
+
+<p>Here are some of the events in your state:</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Location</th>
+            <th scope="col">Host</th>
+            <th scope="col">Action/Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @events.each do |thing| %>
+            <% if thing.state == current_user.state %>
+            <tr>
+                <td><a href="/events/<%= thing.id %>"><%= thing.name %></a></td>
+                <td><%= thing.date %></td>
+                <td><%= thing.city %></td>
+                <td><%= thing.user.first_name %></td>
+                <% if thing.user_id == current_user.id %>
+                    <td><a href="/events/<%= thing.id %>/edit">Edit</a> <a href="/events/<%= thing.id %>" data-method="delete">Delete</a></td>
+                <% elsif %>
+                    <%if thing.joiners.where(id: current_user.id).exists?%>
+                    <td>Joining<a href="/signups/<%= thing.id %>" data-method="delete">Cancel</a><td>
+                    <% else %>
+                    <td><a href="/signups/<%= thing.id %>">Join</a></td>
+                    <%end%>
+                <%end%>
+            </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+    
+</table>
+
+<p>Here are some of the events in other states:</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Location</th>
+            <th scope="col">State</th>
+            <th scope="col">Host</th>
+            <th scope="col">Action/Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @events.each do |thing| %>
+            <% unless thing.state == current_user.state %>
+                <tr>
+                    <td><a href="/events/<%= thing.id %>"><%= thing.name %></a></td></td>
+                    <td><%= thing.date %></td>
+                    <td><%= thing.city %></td>
+                    <td><%= thing.state%></td>
+                    <td><%= thing.user.first_name %></td>
+                    <% if thing.user_id == current_user.id %>
+                    <td><a href="/events/<%= thing.id %>/edit">Edit</a> <a href="/events/<%= thing.id %>" data-method="delete">Delete</a></td>
+                    <% elsif %>
+                        <%if thing.joiners.where(id: current_user.id).exists?%>
+                            <td>Joining <a href="/signups/<%= thing.id %>" data-method="delete">Cancel</a><td>
+                        <% else %>
+                            <td><a href="/signups/<%= thing.id %>">Join</a></td>
+                        <%end%>
+                    <%end%>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+
+</table>
+
+<h3>Add Event</h3>
+    <form id="add_event" action="/events" method="post">
+        <div class="form-group">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <label for="event[name]">Name</label>
+            <input type="text" class="form-control" name="event[name]">
+        </div>
+        <div class="form-group">
+            <label for="event[date]">Date</label>
+            <input type="date" class="form-control" name="event[date]">
+        </div>
+        <div class="form-group">
+            <label for="event[city]">Location</label>
+            <input type="text" class="form-control" name="event[city]">
+        </div>
+        <div class="form-group">
+            <label for="user[city]">State</label>
+            <%= select_tag 'event[state]', options_for_select(us_states) %>
+        </div>
+        <input type="submit" class="btn btn-primary" value="submit">
+    </form>
+</div>
