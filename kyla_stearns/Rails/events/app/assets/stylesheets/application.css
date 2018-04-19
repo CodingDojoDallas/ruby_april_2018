@@ -1,0 +1,173 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+body{
+	width: 970px;
+	margin: auto;
+	padding: 15px;
+	font-size: 16px;
+}
+
+.welcome{
+	display: inline;
+	margin: 0px 15px 25px 0px;
+}
+
+#alert{
+	color: red;
+	font-weight: bold;
+}
+
+#register{
+	display: inline-block;
+	width: 40%;
+}
+
+#login{
+	vertical-align: top;
+	display: inline-block;
+	width: 40%;
+}
+
+#logout{
+	display: block;
+	float: right;
+	margin-right: 50px;
+}
+
+form{
+	padding: 5px;
+}
+
+form button{
+	margin: 15px 0px 0px 200px;
+	display: block;
+}
+
+label{
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 15px 10px 15px 10px;
+}
+
+input{
+	font-size: 16px;
+	padding: 2px;
+	margin: 0px 15px 0px 10px;
+	display: block;
+	width: 250px;
+}
+
+.city{
+	width: 175px;
+	display: inline;
+}
+
+select{
+	font-size: 16px;
+	padding: 3px;
+	margin: 0px 15px 0px 0px;
+}
+
+button{
+	padding: 5px;
+	font-size: 14px;
+	background-color: lightblue;
+	border: 2px solid black;
+	box-shadow: 2px 2px black;
+	margin: 10px 0px 10px 10px;
+}
+
+
+h4{
+	margin: 25px 0px 15px 0px;
+}
+
+table{
+	margin: 15px 0px 50px 15px;
+	border: 2px solid black;
+}
+
+thead{
+	background-color: lightgrey;
+}
+
+th{
+	padding: 3px 5px 3px 5px;
+}
+
+td{
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	font-size: 14px;
+}
+
+td a{
+	margin: 0px 10px 0px 10px;
+}
+
+p{
+	margin: 15px 0px 15px 0px;
+}
+
+header{
+	margin-bottom: 50px;
+}
+
+#info{
+	display: inline-block;
+	width: 45%;
+	margin: -50px 0px 0px 15px;
+}
+
+#info table{
+	margin-top: 25px;
+}
+
+#discussion{
+	vertical-align: top;
+	display: inline-block;
+	width: 45%;
+	margin: 25px 0px 0px 75px;
+}
+
+#comments{
+	overflow: scroll;
+	padding: 3px;
+	height: 300px;
+	width: 275px;
+	border: 2px solid black;
+	margin-left: 75px;
+}
+
+#comments p{
+	font-size: 12px;
+	font-style: italic;
+	margin: 3px 0px 3px 3px;
+}
+
+#discussion h4{
+	margin: 15px 0px 15px 75px;
+}
+
+#discussion h5{
+	margin: 15px 0px 15px 75px;
+}
+
+textarea{
+	padding: 3px;
+	resize: none;
+	height: 50px;
+	width: 275px;
+	margin-left: 75px;
+	font-size: 14px;
+}
+
+#discussion button{
+	margin-left: 200px;
+	width: 150px;
+}

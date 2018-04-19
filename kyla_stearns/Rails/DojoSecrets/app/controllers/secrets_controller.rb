@@ -1,6 +1,8 @@
 class SecretsController < ApplicationController
 	def index
-		@secrets = Secret.all
+		# @secrets = Secret.all
+		# THIS WILL PULL IN YOUR USER DATA WITH THE SECRETS SO THAT YOU DONT HAVE FOR-LOOP IN HTML
+		@secrets = Secret.eager_load(:user).all
 	end
 
 	def create

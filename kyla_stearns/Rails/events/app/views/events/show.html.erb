@@ -1,0 +1,45 @@
+<header>
+	<h1 class="welcome"> <%= @this_event.name %> </h1>
+	<a href="<%= events_path %>"> Events Dashboard </a>
+</header>
+
+<div id="info">	
+	<p> Host: <%= @this_event.user.first_name %> </p>
+	<p> Date: <%= @this_event.date.strftime("%B %d, %Y") %> </p>
+	<p> Location: <%= @this_event.city %>, <%= @this_event.state %>  </p>
+	<p> People who are attending this event: <%= @this_event.users_joined.count %> </p>
+	<table>
+		<thead>
+			<th> Name </th>
+			<th> City </th>
+			<th> State </th>
+		</thead>
+		<tbody>
+		<!-- THIS IS TO LOOP THROUGH ALL ATTENDEES -->
+		<% @this_event.users_joined.each do |attendee| %>
+			<tr>
+				<td> <%= attendee.first_name %> <%= attendee.last_name %> </td>
+				<td> <%= attendee.city %> </td>
+				<td> <%= attendee.state %> </td>
+			</tr>
+		<% end %>	
+		</tbody>
+	</table>
+</div>
+
+<div id="discussion">
+	<h4> Discussion about this event: </h4>
+	<div id="comments">
+		<% @this_event.comments.each do |comment| %>
+			<p> <%= comment.user.first_name %> says: <%= comment.content %> </p>
+		<% end %>
+		
+	</div>
+	<h5> Add comment: </h5>
+	<form action="<%= event_comments_path(@this_event.id) %>" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+		<textarea name="comment[content]"></textarea>
+		<button type="submit"> Submit Comments </button>
+	</form>
+	
+</div>
