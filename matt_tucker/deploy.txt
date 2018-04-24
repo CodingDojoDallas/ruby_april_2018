@@ -103,10 +103,10 @@
 # Add this to rails.conf:
 server {
     listen 80; 
-    server_name 54.183.122.102; 
+    server_name <EC2-Public-IP>; 
     passenger_enabled on; 
     passenger_app_env development; 
-    root /var/www/rails_login/public;
+    root /var/www/<repo_name>/public;
 }
 
 > sudo ln -s /etc/nginx/sites-available/rails.conf /etc/nginx/sites-enabled/rails.conf
